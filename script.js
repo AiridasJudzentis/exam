@@ -10,18 +10,16 @@ document
   });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle menu display on hamburger icon click
   document
     .getElementById("hamburger-icon")
     .addEventListener("click", function () {
       var mobileNavLinks = document.getElementById("mobile-nav-links");
-      mobileNavLinks.style.right = "0"; // Show the menu
+      mobileNavLinks.style.right = "0";
     });
 
-  // Hide menu on close button click
   document.getElementById("close-btn").addEventListener("click", function () {
     var mobileNavLinks = document.getElementById("mobile-nav-links");
-    mobileNavLinks.style.right = "-100%"; // Hide the menu
+    mobileNavLinks.style.right = "-100%";
   });
 });
 
@@ -32,13 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
-      // Reset active class on tabs
       tabs.forEach((tab) => tab.classList.remove("active"));
 
-      // Set clicked tab as active
       tab.classList.add("active");
 
-      // Define content for each tab
       const tabContents = [
         {
           h2: "Tabs with soft transitioning effect. Explained propriety of out perpetual his you.",
@@ -54,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       ];
 
-      // Update content based on clicked tab
       if (tabContents[index]) {
         contentTitle.textContent = tabContents[index].h2;
         contentText.textContent = tabContents[index].p;
@@ -68,14 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", (event) => {
     let isValid = true;
-    // Check each input in the form
     document
       .querySelectorAll(".contact-form input[required]")
       .forEach((input) => {
         if (!input.value.trim()) {
-          // Check if the input is empty
           isValid = false;
-          // Optionally, insert an error message after the input
+
           if (
             !input.nextElementSibling ||
             !input.nextElementSibling.classList.contains("error-message")
@@ -86,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             input.parentNode.insertBefore(error, input.nextSibling);
           }
         } else {
-          // If the input is not empty, remove any existing error message
           if (
             input.nextElementSibling &&
             input.nextElementSibling.classList.contains("error-message")
@@ -97,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     if (!isValid) {
-      event.preventDefault(); // Prevent form submission
+      event.preventDefault();
     }
   });
 });
