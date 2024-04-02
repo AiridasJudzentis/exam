@@ -284,12 +284,11 @@ label {
   font: normal normal 14px/20px Montserrat;
 }
 .content-cards {
-  display: flex; /* Enable flexbox */
-  flex-wrap: wrap; /* Allow items to wrap to next line */
-  gap: 10px; /* Space between items */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   flex-direction: column;
 }
-
 .smaller-cards {
   display: flex;
   flex-direction: row;
@@ -786,6 +785,16 @@ label {
   align-self: center;
 }
 
+input:invalid {
+  border-color: red;
+}
+
+/* Optional: Style for error messages if you decide to add them via JavaScript */
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
+
 .footer-section {
   background-color: #000000; /* Dark background for footer */
   color: white;
@@ -807,7 +816,7 @@ label {
   padding: 20px 0px 10px 0px;
   margin: 0px 20px 0px 20px;
   letter-spacing: 0px;
-  color: #e7e7e7;
+  color: #000000;
   opacity: 1;
 }
 
@@ -903,7 +912,6 @@ label {
   .trial-form,
   .social-icons,
   .tabs-section,
-  .content-cards,
   .filler-section,
   .why-us-section,
   .pricing-section,
@@ -920,10 +928,6 @@ label {
 
   .tabs-section {
     height: 1600px;
-  }
-
-  .content-cards {
-    width: 100%;
   }
 
   .nav-links a,
@@ -996,7 +1000,7 @@ label {
   .feature p {
     font-size: smaller; /* Adjust font size */
   }
-  .content-cards,
+
   .smaller-cards,
   .image1,
   .image2,

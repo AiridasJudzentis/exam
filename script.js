@@ -62,3 +62,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-form");
+
+  form.addEventListener("submit", (event) => {
+    let isValid = true;
+    // Check each input in the form
+    document
+      .querySelectorAll(".contact-form input[required]")
+      .forEach((input) => {
+        if (!input.value.trim()) {
+          // Check if the input is empty
+          isValid = false;
+          // Optionally, insert an error message after the input
+          if (
+            !input.nextElementSibling ||
+            !input.nextElementSibling.classList.contains("error-message")
+          ) {
+            const error = document.createElement("div");
+            error.textContent = "This field is required";
+            error.className = "error-message";
+            input.parentNode.insertBefore(error, input.nextSibling);
+          }
+        } else {
+          // If the input is not empty, remove any existing error message
+          if (
+            input.nextElementSibling &&
+            input.nextElementSibling.classList.contains("error-message")
+          ) {
+            input.nextElementSibling.remove();
+          }
+        }
+      });
+
+    if (!isValid) {
+      event.preventDefault(); // Prevent form submission
+    }
+  });
+});
