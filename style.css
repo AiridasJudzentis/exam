@@ -8,6 +8,9 @@ p {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .header-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/component.png");
@@ -42,9 +45,33 @@ p {
 }
 
 #hamburger-icon {
-  display: none; /* Initially hidden */
-  font-size: 30px; /* Adjust as needed */
+  display: none; /* Hidden on desktop, shown below in media query */
   cursor: pointer;
+  font-size: 30px; /* Adjust as needed */
+  position: absolute;
+  right: 20px; /* Adjust as needed */
+  top: 15px; /* Adjust as needed */
+}
+
+.mobile-nav-links {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%; /* Mobile navigation width */
+  height: 100%; /* Full screen height */
+  background-color: #000; /* Background color */
+  z-index: 1000; /* Ensures it's above other content */
+  flex-direction: column;
+  padding-top: 20px;
+  align-items: center;
+}
+
+.mobile-nav-links a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
 }
 
 .nav-links a {
@@ -805,47 +832,13 @@ label {
   opacity: 0.5;
 }
 
-.mobile-carousel {
-  display: none;
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-}
-
-.carousel-slide {
-  display: none;
-  width: 100%;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-}
-
-.prev,
-.next {
-  cursor: pointer;
+#close-btn {
   position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
+  top: 10px; /* Adjust as necessary */
+  right: 20px; /* Adjust as necessary */
+  font-size: 25px; /* Adjust as necessary */
+  cursor: pointer;
   color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -862,14 +855,14 @@ label {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%; /* Start off-screen */
+    right: -100%; /* Ensure this is not overridden elsewhere */
     height: 100vh;
-    width: 250px; /* Width of the menu */
+    width: 250px; /* Adjust width as necessary */
     flex-direction: column;
     background-color: #000;
-    transition: right 0.5s ease; /* Smooth transition for sliding */
-    align-items: start; /* Align links to the start */
-    padding-top: 20px; /* Space from the top */
+    transition: right 0.5s ease;
+    padding-top: 20px;
+    align-items: start; /* Adjust as necessary */
   }
 
   #hamburger-icon {
@@ -887,19 +880,7 @@ label {
     color: white; /* Adjust as needed */
     padding: 10px;
   }
-  .content-cards,
-  .smaller-cards,
-  .image1,
-  .image2,
-  .image3 {
-    display: none; /* Hide the original images on small screens */
-  }
 
-  .mobile-carousel,
-  .carousel-slide,
-  .carousel-slide img {
-    display: block;
-  }
   .intro-text {
     width: 100%;
     max-width: 100%;
