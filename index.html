@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cheshire County</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +13,17 @@
     <!-- Navigation & Header -->
 
     <div class="header-bg">
-      <nav class="navbar">
-        <img src="assets/cheshire-county-hygiene-services.svg" class="logo" />
-
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#about">About</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+     <nav class="navbar">
+    <img src="assets/cheshire-county-hygiene-services.svg" class="logo" />
+    <div id="hamburger-icon">&#9776;</div> <!-- Hamburger Icon -->
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+</nav>
       <div class="main-header">
         <div class="intro-text">
           <img
@@ -93,6 +93,7 @@
     </div>
 
     <div class="tabs-section">
+      <div class="tab-left">
       <div class="tabs">
         <div class="tab active"><p>REGISTER</p></div>
         <div class="tab"><p>APPLY</p></div>
@@ -105,6 +106,7 @@
             <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>
         </div>
         </div>
+</div>
         <div class="content-cards">
           <div class="smaller-cards">
           <div class="card half">
@@ -116,6 +118,21 @@
             </div>
           <div class="image3"><a href=#>Active Lifestyle</a></div>
           </div>
+
+          <div class="mobile-carousel" >
+  <div class="carousel-slide">
+    <img src="assets/photo-1493409137604-0901c55e4456@2x.png" alt="Explore">
+  </div>
+  <div class="carousel-slide">
+    <img src="assets/photo-1543364195-bfe6e4932397.png" alt="Healthy Food">
+  </div>
+  <div class="carousel-slide">
+    <img src="assets/photo-1448387473223-5c37445527e7.png" alt="Active Lifestyle">
+  </div>
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
+
         </div>
       </div>
     </div>
@@ -293,51 +310,6 @@
           </div>
        </div>
     </div>
-
-
-
-    <!-- <div class="reviews-section">
-      <h2>WHAT OUR CUSTOMERS ARE SAYING</h2>
-      <div class="testimonials">
-        <div class="testimonial">
-          <blockquote>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolores
-            accusamus expedita repellat similiquae odio aspernatur ex."
-          </blockquote>
-          <div class="customer">
-            <img src="path-to-customer-image.jpg" alt="Jeremy H. - Manager" />
-            <p class="customer-name">Jeremy H.</p>
-            <p class="customer-title">Manager</p>
-          </div>
-        </div>
-        <div class="testimonial">
-          <blockquote>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolores
-            accusamus expedita repellat similiquae odio aspernatur ex."
-          </blockquote>
-          <div class="customer">
-            <img src="path-to-customer-image.jpg" alt="John S. - Freelancer" />
-            <p class="customer-name">John S.</p>
-            <p class="customer-title">Freelancer</p>
-          </div>
-        </div>
-        <div class="testimonial">
-          <blockquote>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolores
-            accusamus expedita repellat similiquae odio aspernatur ex."
-          </blockquote>
-          <div class="customer">
-            <img
-              src="path-to-customer-image.jpg"
-              alt="Susan W. - Photographer"
-            />
-            <p class="customer-name">Susan W.</p>
-            <p class="customer-title">Photographer</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="contact-section">
       <h2>CONTACT US</h2>
       <p class="contact-description">
@@ -363,7 +335,7 @@
 
     <footer class="footer-section">
       <div class="footer-content">
-        <div class="social-icons">
+        <div class="social-icons-2">
           <!-- Use Font Awesome icons or images for social icons -->
           <img src="assets/facebook-logo.svg" class="social-icon" />
           <img src="assets/instagram-logo.svg" class="social-icon" />

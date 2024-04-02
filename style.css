@@ -29,28 +29,36 @@ p {
   background-color: #000;
   color: white;
   align-items: center;
-  padding-right: 148px;
 }
+
+.nav-links {
+  display: flex; /* Default display */
+  gap: 1rem; /* Space between links */
+  padding-top: 40px; /* Adjust based on your layout */
+}
+
 .navbar img {
   padding-left: 120px;
 }
+
+#hamburger-icon {
+  display: none; /* Initially hidden */
+  font-size: 30px; /* Adjust as needed */
+  cursor: pointer;
+}
+
 .nav-links a {
   margin-right: 1rem;
   text-decoration: none;
   color: white;
-  /* UI Properties */
-  text-align: right;
   font: normal normal normal 14px/17px Montserrat;
   letter-spacing: 0px;
-  color: #ffffff;
   opacity: 0.69;
-  padding-top: 40px;
-  padding-right: 148px;
 }
 
 .main-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 2rem;
 }
 .try-trial {
@@ -185,6 +193,10 @@ label {
   padding-right: 148px;
 }
 
+.tab-left {
+  display: flex;
+}
+
 .tabs-section {
   display: flex;
   align-items: center;
@@ -200,7 +212,7 @@ label {
   color: #ffffff;
   background-position: 25% 50%;
   height: 500px;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .tabs {
@@ -647,7 +659,14 @@ label {
   letter-spacing: 0px;
   color: #86878b;
 }
+.filler-content {
+  text-align: center;
+}
 
+.filler-heading {
+  text-align: center;
+  margin: 20px;
+}
 .testimonials {
   display: flex;
   justify-content: center;
@@ -784,4 +803,249 @@ label {
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 0.5;
+}
+
+.mobile-carousel {
+  display: none;
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+@media only screen and (max-width: 480px) {
+  .navbar img,
+  .header-logo,
+  .pricing-card img,
+  .reviewer-photo img,
+  .filler-logo {
+    width: 100%; /* Make images responsive */
+    height: auto;
+    max-width: 150px; /* Adjust based on your design */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    height: 100vh;
+    width: 250px; /* Width of the menu */
+    flex-direction: column;
+    background-color: #000;
+    transition: right 0.5s ease; /* Smooth transition for sliding */
+    align-items: start; /* Align links to the start */
+    padding-top: 20px; /* Space from the top */
+  }
+
+  #hamburger-icon {
+    display: block; /* Show icon on mobile */
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    right: 10px; /* Position in the navbar */
+    top: 10px;
+  }
+
+  /* Ensure links are always visible in the nav menu */
+  .nav-links a {
+    display: block;
+    color: white; /* Adjust as needed */
+    padding: 10px;
+  }
+  .content-cards,
+  .smaller-cards,
+  .image1,
+  .image2,
+  .image3 {
+    display: none; /* Hide the original images on small screens */
+  }
+
+  .mobile-carousel,
+  .carousel-slide,
+  .carousel-slide img {
+    display: block;
+  }
+  .intro-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo {
+    padding: 0px;
+  }
+  .header-description {
+    margin: 20px;
+  }
+  .navbar,
+  .main-header,
+  .trial-form,
+  .social-icons,
+  .tabs-section,
+  .content-cards,
+  .filler-section,
+  .why-us-section,
+  .pricing-section,
+  .reviews-section,
+  .contact-section,
+  .footer-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Reduce padding */
+  }
+  .main-header {
+    height: 800px;
+  }
+
+  .tabs-section {
+    height: 1600px;
+  }
+
+  .content-cards {
+    width: 100%;
+  }
+
+  .nav-links a,
+  .intro-text,
+  .trial-form form,
+  .social-text,
+  .highlighted-content,
+  .feature,
+  .review-cards,
+  .contact-form {
+    text-align: center;
+    width: 100%; /* Adjust width */
+    margin: 5px 0; /* Adjust margin for a tighter layout */
+    padding: 0px;
+  }
+
+  .review-cards,
+  .why-us-features {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabs,
+  .content-area,
+  .smaller-cards,
+  .pricing-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab,
+  .card,
+  .pricing-card,
+  .one-reviewer {
+    width: 100%; /* Full width */
+    margin: 5px; /* Reduce margin */
+  }
+
+  .main-title,
+  .try-trial,
+  .your-details,
+  .filler-heading,
+  .feature-title,
+  .pricing-card h3,
+  .price,
+  .plan-duration,
+  .reviewer-info h4,
+  .contact-section h2 {
+    font-size: 26px; /* Adjust font size for readability */
+  }
+  .filler-divider {
+    text-align: cente;
+  }
+  .download-btn,
+  .trial-form button[type="submit"],
+  .btn-send {
+    width: auto; /* Auto width for buttons */
+    padding: 10px; /* Reduce padding */
+  }
+  .trial-form {
+    margin-right: 0px;
+  }
+  .feature-item,
+  .feature-description,
+  .features-list li,
+  .social-description,
+  .highlighted-content p,
+  .filler-description,
+  .feature p {
+    font-size: smaller; /* Adjust font size */
+  }
+  .content-cards,
+  .smaller-cards,
+  .image1,
+  .image2,
+  .image3,
+  .social-logos {
+    padding: 0px;
+  }
+  .social-logos img {
+    padding: 10px;
+  }
+  .header-logo {
+    display: none;
+  }
+  .one-reviewer {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 10px;
+  }
+  .contact-form {
+    margin: auto;
+  }
+  .footer-content {
+    flex-direction: column;
+  }
+  .social-icons-2 {
+    display: flex;
+    flex-direction: row;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
 }
