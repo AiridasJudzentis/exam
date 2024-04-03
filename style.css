@@ -13,6 +13,7 @@ html {
 .header-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/component.png");
+  font: normal normal normal 14px/17px Montserrat;
 }
 
 .header-logo {
@@ -22,6 +23,7 @@ html {
 .main-title {
   width: 60%;
   padding-bottom: 20px;
+  font: normal normal normal 14px/17px Montserrat;
 }
 
 .navbar {
@@ -207,6 +209,7 @@ label {
 }
 .social-text {
   padding-left: 100px;
+  font: normal normal normal 14px/17px Montserrat;
 }
 
 .social-logos img {
