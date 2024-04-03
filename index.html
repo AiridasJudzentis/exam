@@ -12,7 +12,7 @@
   <body>
 
     <div class="header-bg">
-     <nav class="navbar">
+     <nav id="navbar" class="navbar">
     <img src="assets/cheshire-county-hygiene-services.svg" class="logo" />
     <div id="hamburger-icon">&#9776;</div> 
     <div class="nav-links">
@@ -57,11 +57,11 @@
             </h2>
           </div>
 
-          <form>
+          <form class="contact-form">
             <h3 class="your-details">Your details</h3>
-            <input type="text" placeholder="First name" />
-            <input type="text" placeholder="Last name" />
-            <input type="tel" placeholder="Phone number" />
+            <input type="text" placeholder="First name" required/>
+            <input type="text" placeholder="Last name" required/>
+            <input type="tel" placeholder="Phone number" required/>
             <h3 class="your-details">Type of subscribtion</h3>
             <div class="subscription-options">
               <label>
@@ -78,8 +78,9 @@
                 Yearly
               </label>
             </div>
+            <button type="submit" class="btn-send">GET STARTED</button>
           </form>
-          <button type="submit">GET STARTED</button>
+          
         </div>
       </div>
     </div>
@@ -310,21 +311,28 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
       <form class="contact-form">
-  <input type="text" placeholder="First name" required />
-  <input type="text" placeholder="Last name" required />
-  <input type="tel" placeholder="Phone number" required />
-  <div class="subscription-options">
-    <label>
-      <input type="radio" name="subscription" value="monthly" checked />
-      Monthly
-    </label>
-    <label>
-      <input type="radio" name="subscription" value="yearly" />
-      Yearly
-    </label>
-  </div>
-  <button type="submit" class="btn-send">SEND</button>
-</form>
+            <h3 class="your-details">Your details</h3>
+            <input type="text" placeholder="First name" required/>
+            <input type="text" placeholder="Last name" required/>
+            <input type="tel" placeholder="Phone number" required/>
+            <h3 class="your-details">Type of subscribtion</h3>
+            <div class="subscription-options">
+              <label>
+                <input
+                  type="radio"
+                  name="subscription"
+                  value="monthly"
+                  checked
+                />
+                Monthly
+              </label>
+              <label>
+                <input type="radio" name="subscription" value="yearly" />
+                Yearly
+              </label>
+            </div>
+            <button type="submit" class="btn-send">GET STARTED</button>
+          </form>
     </div>
 
     <footer class="footer-section">

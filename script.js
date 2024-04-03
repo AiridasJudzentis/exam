@@ -61,34 +61,85 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
 
   form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent default form submission
     let isValid = true;
+    const phoneNumberInput = form.querySelector('input[type="tel"]'); // Assuming the phone number input has type="tel"
+
+    // Clear previous success and error messages
+    const previousSuccessMessage = document.querySelector(".success-message");
+    if (previousSuccessMessage) {
+      previousSuccessMessage.remove();
+    }
+    const errorMessages = form.querySelectorAll(".error-message");
+    errorMessages.forEach((message) => message.remove());
+
+    // Validate each required input
     document
       .querySelectorAll(".contact-form input[required]")
       .forEach((input) => {
         if (!input.value.trim()) {
           isValid = false;
-
-          if (
-            !input.nextElementSibling ||
-            !input.nextElementSibling.classList.contains("error-message")
-          ) {
-            const error = document.createElement("div");
-            error.textContent = "This field is required";
-            error.className = "error-message";
-            input.parentNode.insertBefore(error, input.nextSibling);
-          }
+          showError(input, "This field is required");
         } else {
+          // Specific validation for the phone number input
           if (
-            input.nextElementSibling &&
-            input.nextElementSibling.classList.contains("error-message")
+            input.type === "tel" &&
+            !validatePhoneNumber(input.value.trim())
           ) {
-            input.nextElementSibling.remove();
+            isValid = false;
+            showError(
+              input,
+              "Invalid phone number format. Must include '+' and numbers only."
+            );
           }
         }
       });
 
-    if (!isValid) {
-      event.preventDefault();
+    if (isValid) {
+      // All validations passed, display the success message
+      showSuccess(form, "Form submitted successfully!");
+      // Optionally, clear the form or take other actions
+      // form.reset();
     }
   });
+
+  function validatePhoneNumber(number) {
+    // Checks if the phone number starts with '+' and followed by digits
+    return /^\+[0-9]+$/.test(number);
+  }
+
+  function showError(input, message) {
+    // Function to display error messages
+    const error = document.createElement("div");
+    error.textContent = message;
+    error.className = "error-message";
+    input.parentNode.insertBefore(error, input.nextSibling);
+  }
+
+  function showSuccess(form, message) {
+    // Function to display the success message
+    const successMessage = document.createElement("div");
+    successMessage.textContent = message;
+    successMessage.className = "success-message";
+    form.appendChild(successMessage); // Adjust to place the success message where you prefer
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.getElementById("navbar");
+
+  const stickyOffset = navbar.offsetTop;
+
+  function stickyNavbar() {
+    if (window.pageYOffset >= stickyOffset) {
+      navbar.classList.add("sticky");
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+
+  // When the user scrolls the page, execute stickyNavbar
+  window.onscroll = function () {
+    stickyNavbar();
+  };
 });
