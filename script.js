@@ -143,3 +143,51 @@ document.addEventListener("DOMContentLoaded", () => {
     stickyNavbar();
   };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel-slide");
+  let currentIndex = 0;
+
+  // Example function to move to the next slide
+  function moveToNextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length; // Loop back to first slide at end
+    updateCarouselPosition();
+  }
+
+  // Function to update the carousel's scroll position
+  function updateCarouselPosition() {
+    const carousel = document.querySelector(".carousel");
+    const currentSlide = slides[currentIndex];
+    carousel.scrollLeft = currentSlide.offsetLeft - carousel.offsetLeft;
+  }
+
+  // Example usage
+  // document.querySelector('.next-button').addEventListener('click', moveToNextSlide);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all images that should open the lightbox
+  document
+    .querySelectorAll(".content-cards img, .carousel-slide img")
+    .forEach((image) => {
+      image.addEventListener("click", () => {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightbox.style.display = "block";
+        lightboxImg.src = image.src;
+        document.querySelector(".caption").textContent = image.alt; // Optional: Use alt text as caption
+      });
+    });
+
+  // Listen for a click on the close button
+  document.querySelector(".close").addEventListener("click", () => {
+    document.getElementById("lightbox").style.display = "none";
+  });
+
+  // Optional: Close lightbox when clicking outside of the image
+  document.getElementById("lightbox").addEventListener("click", (e) => {
+    if (e.target !== document.getElementById("lightbox-img")) {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  });
+});
