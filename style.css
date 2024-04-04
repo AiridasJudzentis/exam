@@ -36,6 +36,7 @@ html {
   position: sticky;
   width: 100%;
   z-index: 1000;
+  position: fixed;
 }
 .sticky {
   position: fixed;
@@ -95,7 +96,7 @@ html {
   display: flex;
   justify-content: space-around;
   padding: 2rem;
-  margin-top: 80px;
+  padding-top: 100px;
 }
 .try-trial {
   color: #000;
@@ -786,12 +787,12 @@ input:invalid {
 }
 
 .carousel-container {
-  overflow: hidden; /* Hide overflow on larger screens */
+  overflow: hidden;
 }
 
 .carousel {
   display: flex;
-  gap: 10px; /* Adjust spacing between images */
+  gap: 10px;
 }
 
 .carousel-slide {
@@ -801,8 +802,8 @@ input:invalid {
 }
 
 .carousel-slide img {
-  width: auto; /* Adjust based on your design */
-  height: 100px; /* Adjust based on your design */
+  width: auto;
+  height: 100px;
   display: none;
 }
 
@@ -872,8 +873,8 @@ input:invalid {
   }
 
   .carousel-container {
-    overflow-x: auto; /* Allow horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
 
   .carousel {
@@ -882,26 +883,26 @@ input:invalid {
 
   .carousel-slide {
     flex: none;
-    width: 80%; /* Adjust the width of slides in the carousel */
+    width: 80%;
     scroll-snap-align: start;
   }
 
   .carousel-slide img {
-    width: 100%; /* Ensure image fills the slide */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
     display: block;
   }
   .smaller-cards,
   .card {
     flex-direction: column;
-    width: 100%; /* Make cards full width */
+    width: 100%;
   }
 
   .image1,
   .image2,
   .image3 {
-    width: 100%; /* Make images full width within their cards */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
   }
 
   .navbar img,

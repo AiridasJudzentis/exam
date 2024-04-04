@@ -61,11 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
 
   form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
     let isValid = true;
-    const phoneNumberInput = form.querySelector('input[type="tel"]'); // Assuming the phone number input has type="tel"
+    const phoneNumberInput = form.querySelector('input[type="tel"]');
 
-    // Clear previous success and error messages
     const previousSuccessMessage = document.querySelector(".success-message");
     if (previousSuccessMessage) {
       previousSuccessMessage.remove();
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorMessages = form.querySelectorAll(".error-message");
     errorMessages.forEach((message) => message.remove());
 
-    // Validate each required input
     document
       .querySelectorAll(".contact-form input[required]")
       .forEach((input) => {
@@ -81,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
           isValid = false;
           showError(input, "This field is required");
         } else {
-          // Specific validation for the phone number input
           if (
             input.type === "tel" &&
             !validatePhoneNumber(input.value.trim())
@@ -96,20 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     if (isValid) {
-      // All validations passed, display the success message
       showSuccess(form, "Form submitted successfully!");
-      // Optionally, clear the form or take other actions
-      // form.reset();
     }
   });
 
   function validatePhoneNumber(number) {
-    // Checks if the phone number starts with '+' and followed by digits
     return /^\+[0-9]+$/.test(number);
   }
 
   function showError(input, message) {
-    // Function to display error messages
     const error = document.createElement("div");
     error.textContent = message;
     error.className = "error-message";
@@ -117,56 +109,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showSuccess(form, message) {
-    // Function to display the success message
     const successMessage = document.createElement("div");
     successMessage.textContent = message;
     successMessage.className = "success-message";
-    form.appendChild(successMessage); // Adjust to place the success message where you prefer
+    form.appendChild(successMessage);
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.getElementById("navbar");
-
-  const stickyOffset = navbar.offsetTop;
-
-  function stickyNavbar() {
-    if (window.pageYOffset >= stickyOffset) {
-      navbar.classList.add("sticky");
-    } else {
-      navbar.classList.remove("sticky");
-    }
-  }
-
-  // When the user scrolls the page, execute stickyNavbar
-  window.onscroll = function () {
-    stickyNavbar();
-  };
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".carousel-slide");
   let currentIndex = 0;
 
-  // Example function to move to the next slide
   function moveToNextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length; // Loop back to first slide at end
+    currentIndex = (currentIndex + 1) % slides.length;
     updateCarouselPosition();
   }
 
-  // Function to update the carousel's scroll position
   function updateCarouselPosition() {
     const carousel = document.querySelector(".carousel");
     const currentSlide = slides[currentIndex];
     carousel.scrollLeft = currentSlide.offsetLeft - carousel.offsetLeft;
   }
-
-  // Example usage
-  // document.querySelector('.next-button').addEventListener('click', moveToNextSlide);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Get all images that should open the lightbox
   document
     .querySelectorAll(".content-cards img, .carousel-slide img")
     .forEach((image) => {
@@ -175,16 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const lightboxImg = document.getElementById("lightbox-img");
         lightbox.style.display = "block";
         lightboxImg.src = image.src;
-        document.querySelector(".caption").textContent = image.alt; // Optional: Use alt text as caption
+        document.querySelector(".caption").textContent = image.alt;
       });
     });
 
-  // Listen for a click on the close button
   document.querySelector(".close").addEventListener("click", () => {
     document.getElementById("lightbox").style.display = "none";
   });
 
-  // Optional: Close lightbox when clicking outside of the image
   document.getElementById("lightbox").addEventListener("click", (e) => {
     if (e.target !== document.getElementById("lightbox-img")) {
       document.getElementById("lightbox").style.display = "none";
